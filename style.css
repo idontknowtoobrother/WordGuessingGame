@@ -3,6 +3,15 @@
 *{
     font-family: 'Oswald', sans-serif;
     text-shadow: 0.5px 0.5px 2px rgba(0, 255, 72, 0.426);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
+    color: rgb(255, 255, 255);
+
 }
 
 body{
@@ -12,7 +21,7 @@ body{
 .game_container{
     position: absolute;
     width: 800px;
-    height: 600px;
+    height: 500px;
     background-color: rgb(26, 26, 26);
     left: 50%;
     transform: translateX(-50%);
@@ -20,16 +29,68 @@ body{
     padding: 25px;
     text-align: center;
     font-size: 25px;
-    color: white;
 }
 
 .rules_info{
     margin-top: 15px;
     background-color: rgba(255, 255, 255, 0.049);
-    width: 100%;
+    width: 700;
     height: 50%;
     border-radius: 15px;
     padding: 10px;
     font-size: 15px;
     text-align: left;
+}
+
+#fail-attemp{
+    margin-right: 600px;
+}
+
+button {
+    margin-top: 70px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 30px;
+    padding-left: 9px;
+    padding-right: 5px;
+    background: rgb(0, 182, 0);
+}
+
+button:hover {
+    opacity: .7;
+    transition: .1s;
+}
+
+#missionWord{
+    font-size: 80px;
+}
+
+.grid-answers {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px ;
+    grid-gap: 30px;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.grid-character {
+    background-color: rgba(255, 255, 255, 0.049);
+    border: 0;
+    padding: 15px;
+    font-size: 40px;
+}
+
+.game-over {
+    border-radius: 10px;
+    font-size: 60px;
+    background-color: red;
+    margin-top: 200px;
+}
+
+.grid-character:hover{
+    color: gold;
+    background: rgba(255, 255, 255, 0.25);
+    transition: .3s;
 }
