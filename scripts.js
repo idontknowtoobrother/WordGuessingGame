@@ -133,6 +133,7 @@ function isCorrectWord(selectedChar, id) {
         removeWord(gameData.fullWord)
         debug(`Word Data -> ${wordData}`)
         setTimeout(function () {
+            failAttmp = 0
             toStartGuessingWord()
         }, 400);
         return
@@ -158,7 +159,7 @@ function toStartGuessingWord() {
     cleanGameContainer()
     // Win
     debug(`Stat -> ${failAttmp} < ${maxFailAttmp}`)
-    if (failAttmp < maxFailAttmp && wordData.length < 1) {
+    if (wordData.length < 1) {
         document.getElementsByClassName('game_container')[0].innerHTML = `<div class="game-win">Congratulations 😊</div><br>Fail Attemp : <span style="color:red">${failAttmp}</span><br><button onclick="toMainMenu()">Back To Main`
         return
     }
