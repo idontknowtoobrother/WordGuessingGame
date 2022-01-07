@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+*{
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 0.5px 0.5px 2px rgba(0, 255, 72, 0.426);
+}
+
+body{
+    background: rgb(31, 31, 31);
+}
+
+.game_container{
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    background-color: rgb(26, 26, 26);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+.rules_info{
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.049);
+    width: 100%;
+    height: 50%;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: left;
+}
