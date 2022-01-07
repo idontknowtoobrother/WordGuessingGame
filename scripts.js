@@ -52,9 +52,17 @@ function toMainMenu() {
     cleanGameContainer()
     initialGame()
     document.getElementsByClassName('game_container')[0].innerHTML = `
-        Word Missing 💡
+        Chracter Hidden 💡
         <div class='rules_info'>
-            <span style="font-size: 20px; color: gold;"> @ Game Instructor</span><br>
+            <span style="font-size: 20px; color: gold;"> @ Game Instructor</span>
+            <br>1. The Character Hidden gonna random a word
+            <br>2. That the word will hidden 1 character itself
+            <br>3. We have 8 block of chracters
+            <br>4. You must guess and select it to go another word
+
+            <br><br><span style="font-size: 20px; color: gold;"> @ Attention</span><br>
+            You have max fail attemp if you choose a incorrect world more than max attemp you will lose .
+            <br>Fail Attemp : <span style="color:red">${failAttmp}</span>
         </div>
         <button id="startBtn" onclick="toStartGuessingWord()">Let's Guess The Word 🖱️</button>
     `
@@ -125,18 +133,21 @@ function isCorrectWord(selectedChar) {
     
     // Game Over
     if (failAttmp >= maxFailAttmp) {
-        document.getElementsByClassName('game_container')[0].innerHTML = `<div class="game-over">GAME OVER !</div><br><button onclick="toMainMenu()">Back To Main`
+        document.getElementsByClassName('game_container')[0].innerHTML = `<div class="game-over">Game Over !</div><br>Fail Attemp : <span style="color:red">${failAttmp}</span><br><button onclick="toMainMenu()">Back To Main`
         return
     }
 
-    // Win
-    if (failAttmp < maxFailAttmp && wordData.length < 1) {
-        return
-    }
 }
 
 function toStartGuessingWord() {
     cleanGameContainer()
+    // Win
+    debug(`Stat -> ${failAttmp} < ${maxFailAttmp}`)
+    if (failAttmp < maxFailAttmp && wordData.length < 1) {
+        document.getElementsByClassName('game_container')[0].innerHTML = `<div class="game-win">Congratulations 😊</div><br>Fail Attemp : <span style="color:red">${failAttmp}</span><br><button onclick="toMainMenu()">Back To Main`
+        return
+    }
+
     refreshFailAttmpData()
     gameData = wordCalculate(getRandomWord())
     var rndData = getRandomCharactersData(gameData.missingChar)
