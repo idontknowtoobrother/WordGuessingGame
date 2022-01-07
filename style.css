@@ -56,6 +56,15 @@ body{
     font-size: 38px;
 }
 
+.onclicked-right {
+    transition: .2s;
+    font-size: 30px;
+    background-color: rgb(0, 237, 87);
+    border: 0;
+    padding: 15px;
+    font-size: 41px;
+}
+
 button {
     margin-top: 70px;
     outline: 0;

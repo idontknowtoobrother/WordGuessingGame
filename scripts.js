@@ -17,11 +17,11 @@ function cleanGameContainer() {
 function initialGame() { 
     wordData = [
         "APPLE",
-        // "BANANA",
-        // "CARROT",
-        // "DEAR",
-        // "ELEPHANT",
-        // "FISH",
+        "BANANA",
+        "CARROT",
+        "DEAR",
+        "ELEPHANT",
+        "FISH",
         // "GRAPE",
         // "HUMAN",
         // "ICON",
@@ -118,20 +118,31 @@ function removeWord(word) {
         }
     }
 }
+function disableAllBtn() { 
+    for (var id = 0; id < 8; id++){
+        document.getElementById(`word_${id}`).onclick = ''
+        document.getElementById(`word_${id}`).disabled = true
+    }
+}
 
 function isCorrectWord(selectedChar, id) {
     if (gameData.missingChar == selectedChar) {
+        disableAllBtn()
+        document.getElementById(`word_${id}`).classList.remove('grid-character')
+        document.getElementById(`word_${id}`).classList.add('onclicked-right');
         removeWord(gameData.fullWord)
         debug(`Word Data -> ${wordData}`)
-        toStartGuessingWord()
+        setTimeout(function () {
+            toStartGuessingWord()
+        }, 400);
         return
     }
 
     failAttmp++
-    document.getElementById(`word_${selectedChar}_${id}`).classList.remove('grid-character')
-    document.getElementById(`word_${selectedChar}_${id}`).classList.add('onclicked');
-    document.getElementById(`word_${selectedChar}_${id}`).disabled = true
-    document.getElementById(`word_${selectedChar}_${id}`).onclick = ''
+    document.getElementById(`word_${id}`).classList.remove('grid-character')
+    document.getElementById(`word_${id}`).classList.add('onclicked');
+    document.getElementById(`word_${id}`).disabled = true
+    document.getElementById(`word_${id}`).onclick = ''
 
     document.getElementById('fail-attemp').innerHTML = `Fail Attemp: <span style="color:red">${failAttmp}/${maxFailAttmp}</span>`
     
@@ -161,7 +172,7 @@ function toStartGuessingWord() {
         <div class='grid-answers'>
     `   
     for (let id = 0; id < rndData.length; id++){
-        htmlCode += `<div class="grid-character" id="word_${rndData[id]}_${id}" onclick="isCorrectWord('${rndData[id]}', '${id}')">${rndData[id]}</div>`
+        htmlCode += `<div class="grid-character" id="word_${id}" onclick="isCorrectWord('${rndData[id]}', '${id}')">${rndData[id]}</div>`
     }
     htmlCode+='</div>'
      
