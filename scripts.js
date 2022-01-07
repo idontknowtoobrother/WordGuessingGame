@@ -119,7 +119,7 @@ function removeWord(word) {
     }
 }
 
-function isCorrectWord(selectedChar) {
+function isCorrectWord(selectedChar, id) {
     if (gameData.missingChar == selectedChar) {
         removeWord(gameData.fullWord)
         debug(`Word Data -> ${wordData}`)
@@ -128,7 +128,11 @@ function isCorrectWord(selectedChar) {
     }
 
     failAttmp++
-    // document.getElementById(`word_${selectedChar}`)
+    document.getElementById(`word_${selectedChar}_${id}`).classList.remove('grid-character')
+    document.getElementById(`word_${selectedChar}_${id}`).classList.add('onclicked');
+    document.getElementById(`word_${selectedChar}_${id}`).disabled = true
+    document.getElementById(`word_${selectedChar}_${id}`).onclick = ''
+
     document.getElementById('fail-attemp').innerHTML = `Fail Attemp: <span style="color:red">${failAttmp}/${maxFailAttmp}</span>`
     
     // Game Over
@@ -156,8 +160,8 @@ function toStartGuessingWord() {
         <div id='missionWord'>${gameData.gameWord}</div>
         <div class='grid-answers'>
     `   
-    for (let i = 0; i < rndData.length; i++){
-        htmlCode += `<div class="grid-character" id="word_${rndData[i]}" onclick="isCorrectWord('${rndData[i]}')">${rndData[i]}</div>`
+    for (let id = 0; id < rndData.length; id++){
+        htmlCode += `<div class="grid-character" id="word_${rndData[id]}_${id}" onclick="isCorrectWord('${rndData[id]}', '${id}')">${rndData[id]}</div>`
     }
     htmlCode+='</div>'
      

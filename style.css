@@ -46,6 +46,16 @@ body{
     margin-right: 600px;
 }
 
+.onclicked {
+    transition: .2s;
+    opacity: .8;
+    font-size: 30px;
+    background-color: red;
+    border: 0;
+    padding: 15px;
+    font-size: 38px;
+}
+
 button {
     margin-top: 70px;
     outline: 0;
