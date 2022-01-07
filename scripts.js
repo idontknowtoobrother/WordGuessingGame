@@ -52,7 +52,7 @@ function toMainMenu() {
     cleanGameContainer()
     initialGame()
     document.getElementsByClassName('game_container')[0].innerHTML = `
-        Chracter Hidden 💡
+        Character Hidden💡
         <div class='rules_info'>
             <span style="font-size: 20px; color: gold;"> @ Game Instructor</span>
             <br>1. The Character Hidden gonna random a word
@@ -61,7 +61,7 @@ function toMainMenu() {
             <br>4. You must guess and select it to go another word
 
             <br><br><span style="font-size: 20px; color: gold;"> @ Attention</span><br>
-            You have max fail attemp if you choose a incorrect world more than max attemp you will lose .
+            You have max fail attemp if you choose a incorrect word more than max attemp you will lose .
             <br>Fail Attemp : <span style="color:red">${failAttmp}</span>
         </div>
         <button id="startBtn" onclick="toStartGuessingWord()">Let's Guess The Word 🖱️</button>
